@@ -40,6 +40,23 @@ def set_item_owner(event):
 
 
 @registry.add
+def set_last_login(event):
+    from datetime import datetime
+    from nefertari.authentication.views import TicketAuthLoginView
+    from nefertari import engine
+    if not isinstance(event.view, TicketAuthLoginView):
+        return
+
+    User = engine.get_document_cls('User')
+    login = event.fields['login'].new_value
+    field = 'email' if '@' in login else 'username'
+    user = User.get_item(**{field: login})
+    if user is not None:
+        user.update({'last_login': datetime.now()},
+                    event.view.request)
+
+
+@registry.add
 def lowercase(**kwargs):
     """ Make :new_value: lowercase (and stripped) """
     return (kwargs['new_value'] or '').lower().strip()
