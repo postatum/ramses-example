@@ -45,33 +45,47 @@ securitySchemes:
                 allow everyone view,options
                 allow {{user_self}} update
 securedBy: [x_ticket_auth]
+resourceTypes:
+    - collection:
+        description: Collection of <<resourcePathName>>
+        get:
+            description: Get all <<resourcePathName>>
+        post:
+            description: Create new item in <<resourcePathName>> collection
+        patch:
+            description: Update multiple <<resourcePathName>>
+        head:
+            description: Determine whether a given resource is available
+        options:
+            description: Retrieve the available HTTP verbs for a given resource
+    - item:
+        description: Item from <<resourcePathName>> collection
+        get:
+            description: Get a particular item from <<resourcePathName>> collection
+        patch:
+            description: Update a particular item from <<resourcePathName>> collection
+        put:
+            description: Replace a particular item from <<resourcePathName>> collection
+        delete:
+            description: Delete a particular item from <<resourcePathName>> collection
+        head:
+            description: Determine whether a given resource is available
+        options:
+            description: Retrieve the available HTTP verbs for a given resource
 
 /users:
     securedBy: [user_self_acl]
     displayName: All users
-    get:
-        description: Get all users
+    type: collection
     post:
         description: Create a new user
         body:
             application/json:
                 schema: !include schemas/user.json
-    patch:
-        description: Update multiple users
-    head:
-        description: Determine whether a given resource is available
-    options:
-        description: Retrieve the available HTTP verbs for a given resource
 
     /{username}:
+        type: item
         displayName: One user
-        get:
-            description: Get a particular user
-        patch:
-        put:
-            description: Update a particular user
-        delete:
-            description: Delete a particular user
 
         /settings:
             displayName: User settings
@@ -102,32 +116,15 @@ securedBy: [x_ticket_auth]
 /stories:
     securedBy: [item_owner_acl]
     displayName: All stories
-    get:
-        description: Get all stories
+    type: collection
     post:
-        description: Create a new story
+        description: Create new story
         body:
             application/json:
                 schema: !include schemas/story.json
-    patch:
-        description: Update multiple stories
     delete:
         description: Delete multiple stories
-    head:
-        description: Determine whether a given resource is available
-    options:
-        description: Retrieve the available HTTP verbs for a given resource
 
     /{id}:
+        type: item
         displayName: One story
-        get:
-            description: Get a particular story
-        delete:
-            description: Delete a particular story
-        patch:
-        put:
-            description: Update a particular story
-        head:
-            description: Determine whether a given resource is available
-        options:
-            description: Retrieve the available HTTP verbs for a given resource
