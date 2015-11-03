@@ -66,4 +66,25 @@ def encrypt(**kwargs):
 def main(global_config, **settings):
     config = Configurator(settings=settings)
     config.include('ramses')
+    config.scan('ramses_example')
     return config.make_wsgi_app()
+
+
+# Serve loader.io verification file
+
+import os
+from pyramid.response import Response
+from pyramid.view import view_config
+
+VERIFICATION_FILE = 'loaderio-ab4b2ee8ceda72d10240d5d96860b921.txt'
+
+_here = os.path.dirname(__file__)
+_verification = open(os.path.join(_here, VERIFICATION_FILE)).read()
+_verification_response = Response(
+    content_type='text/plain',
+    body=_verification)
+
+
+@view_config(name=VERIFICATION_FILE)
+def verification_view(context, request):
+    return _verification_response
