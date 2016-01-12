@@ -79,8 +79,7 @@
                 "max_length": 50,
                 "unique": true,
                 "primary_key": true
-            },
-            "_processors": ["lowercase"]
+            }
         },
         "email": {
             "type": "string",
@@ -89,8 +88,7 @@
                 "type": "string",
                 "required": true,
                 "unique": true
-            },
-            "_processors": ["lowercase"]
+            }
         },
         "password": {
             "type": "string",
@@ -99,8 +97,7 @@
                 "type": "string",
                 "required": true,
                 "min_length": 3
-            },
-            "_processors": ["encrypt"]
+            }
         },
         "first_name": {
             "type": ["string", "null"],
