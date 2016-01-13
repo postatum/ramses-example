@@ -1,6 +1,6 @@
 web:
   build: .
-  command: bash -c "waitforservices; ls /code/ramses_app"
+  command: bash -c "waitforservices; pserve local.ini"
   ports:
     - "6543:6543"
   links:
