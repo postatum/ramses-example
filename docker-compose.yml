@@ -8,6 +8,10 @@ web:
     - es
 postgres:
   image: postgres
+  environment:
+    POSTGRES_USER: ramses_usr
+    POSTGRES_PASSWORD: ramses_pass
+    POSTGRES_DB: ramses_db
   ports:
     - "5432:5432"
 es:
