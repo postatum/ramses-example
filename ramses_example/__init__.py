@@ -10,7 +10,7 @@ def my_is_admin(cls, user):
     """ Example of overriding """
     log.info('Checking if user {} is admin'.format(user))
     return 'admin' in user.groups
-registry.add('Alienuser.is_admin', classmethod(my_is_admin))
+registry.add('AlienUser.is_admin', classmethod(my_is_admin))
 
 
 @registry.add
