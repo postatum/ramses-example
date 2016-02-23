@@ -10,7 +10,7 @@ def my_is_admin(cls, user):
     """ Example of overriding """
     log.info('Checking if user {} is admin'.format(user))
     return 'admin' in user.groups
-registry.add('User.is_admin', classmethod(my_is_admin))
+registry.add('Alienuser.is_admin', classmethod(my_is_admin))
 
 
 @registry.add
@@ -24,7 +24,7 @@ def user_self(ace, request, obj):
 def user_profile(ace, request, obj):
     """ Give ALL_PERMISSIONS permission to profile's user. """
     from pyramid.security import Allow, ALL_PERMISSIONS
-    username = request.matchdict['users_username']
+    username = request.matchdict['alienusers_username']
     return [(Allow, str(username), ALL_PERMISSIONS)]
 
 

@@ -13,6 +13,8 @@ securitySchemes:
     - x_token_auth:
         description: Authorization header token policy
         type: x-ApiKey
+        settings:
+            removeWhen: ramlfications-0.2.0 is released
     - x_ticket_auth:
         description: Standard Pyramid Auth Ticket policy
         type: x-Ticket
@@ -55,7 +57,7 @@ securitySchemes:
                 allow {{user_profile}} all
 securedBy: [x_ticket_auth]
 
-/users:
+/alien-users:
     securedBy: [user_self_acl]
     displayName: All users
     get:

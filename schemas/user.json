@@ -30,7 +30,7 @@
             "_db_settings": {
                 "type": "relationship",
                 "document": "Profile",
-                "backref_name": "user",
+                "backref_name": "alienuser",
                 "uselist": false
             }
         },
