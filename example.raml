@@ -13,6 +13,8 @@ securitySchemes:
     - x_token_auth:
         description: Authorization header token policy
         type: x-ApiKey
+        settings:
+            bug: in ramlfications requires this
     - x_ticket_auth:
         description: Standard Pyramid Auth Ticket policy
         type: x-Ticket
@@ -71,6 +73,13 @@ securedBy: [x_ticket_auth]
         description: Determine whether a given resource is available
     options:
         description: Retrieve the available HTTP verbs for a given resource
+
+    /self:
+        displayName: Info on the Current User
+        get:
+            description: Get the current logged user
+        patch:
+            description: Update the current logged user
 
     /{username}:
         displayName: One user

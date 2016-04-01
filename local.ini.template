@@ -1,6 +1,7 @@
 [app:ramses_example]
 use = egg:ramses_example
 ramses.raml_schema = example.raml
+ramses.ignored_routes = /users/self
 
 ; nefertari.engine = nefertari_mongodb
 nefertari.engine = nefertari_sqla
