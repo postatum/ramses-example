@@ -21,7 +21,6 @@
             "type": ["string", "null"],
             "format": "date-time",
             "_db_settings": {
-                "type": "datetime",
                 "onupdate": "{{datetime.datetime.utcnow}}"
             }
         },
@@ -73,10 +72,7 @@
             "minLength": 1,
             "maxLength": 50,
             "_db_settings": {
-                "type": "string",
                 "required": true,
-                "min_length": 1,
-                "max_length": 50,
                 "unique": true,
                 "primary_key": true
             },
@@ -86,7 +82,6 @@
             "type": "string",
             "format": "email",
             "_db_settings": {
-                "type": "string",
                 "required": true,
                 "unique": true
             },
@@ -96,38 +91,23 @@
             "type": "string",
             "minLength": 3,
             "_db_settings": {
-                "type": "string",
                 "required": true,
-                "min_length": 3
             },
             "_processors": ["encrypt"]
         },
         "first_name": {
             "type": ["string", "null"],
             "maxLength": 50,
-            "default": "",
-            "_db_settings": {
-                "type": "string",
-                "max_length": 50,
-                "default": ""
-            }
+            "default": ""
         },
         "last_name": {
             "type": ["string", "null"],
             "maxLength": 50,
-            "default": "",
-            "_db_settings": {
-                "type": "string",
-                "max_length": 50,
-                "default": ""
-            }
+            "default": ""
         },
         "last_login": {
             "type": ["string", "null"],
-            "format": "date-time",
-            "_db_settings": {
-                "type": "datetime"
-            }
+            "format": "date-time"
         },
         "groups": {
             "type": ["array", "null"],
@@ -137,27 +117,17 @@
             },
             "default": ["user"],
             "_db_settings": {
-                "type": "list",
                 "choices": ["admin", "user"],
-                "default": ["user"],
                 "item_type": "string"
             }
         },
         "status": {
             "type": ["string", "null"],
             "enum": ["active", "inactive", "blocked"],
-            "default": "active",
-            "_db_settings": {
-                "type": "choice",
-                "choices": ["active", "inactive", "blocked"],
-                "default": "active"
-            }
+            "default": "active"
         },
         "settings": {
-            "type": ["object", "null"],
-            "_db_settings": {
-                "type": "dict"
-            }
+            "type": ["object", "null"]
         }
     }
 }

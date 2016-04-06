@@ -13,16 +13,12 @@
         "created_at": {
             "type": ["string", "null"],
             "format": "date-time",
-            "_db_settings": {
-                "type": "datetime",
-                "default": "{{datetime.datetime.utcnow}}"
-            }
+            "default": "{{datetime.datetime.utcnow}}"
         },
         "updated_at": {
             "type": ["string", "null"],
             "format": "date-time",
             "_db_settings": {
-                "type": "datetime",
                 "onupdate": "{{datetime.datetime.utcnow}}"
             }
         },

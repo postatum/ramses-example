@@ -19,38 +19,27 @@
         "created_at": {
             "type": ["string", "null"],
             "format": "date-time",
-            "_db_settings": {
-                "type": "datetime",
-                "default": "{{datetime.datetime.utcnow}}"
-            }
+            "default": "{{datetime.datetime.utcnow}}"
         },
         "updated_at": {
             "type": ["string", "null"],
             "format": "date-time",
             "_db_settings": {
-                "type": "datetime",
                 "onupdate": "{{datetime.datetime.utcnow}}"
             }
         },
         "start_date": {
             "type": ["string", "null"],
-            "format": "date-time",
-            "_db_settings": {
-                "type": "datetime"
-            }
+            "format": "date-time"
         },
         "due_date": {
             "type": ["string", "null"],
-            "format": "date-time",
-            "_db_settings": {
-                "type": "datetime"
-            }
+            "format": "date-time"
         },
         "name": {
             "type": "string",
             "_db_settings": {
-                "required": true,
-                "type": "string"
+                "required": true
             }
         },
         "description": {
@@ -62,18 +51,11 @@
         },
         "progress": {
             "type": ["number", "null"],
-            "_db_settings": {
-                "type": "float",
-                "default": 0
-            }
+            "default": 0
         },
         "completed": {
             "type": ["boolean", "null"],
-            "default": false,
-            "_db_settings": {
-                "type": "boolean",
-                "default": false
-            }
+            "default": false
         },
         "owner_id": {
             "type": ["string", "null"],
@@ -115,11 +97,7 @@
         },
         "reads": {
             "type": ["integer", "null"],
-            "default": 0,
-            "_db_settings": {
-                "type": "integer",
-                "default": 0
-            }
+            "default": 0
         },
         "rating": {
             "type": ["integer", "null"],
