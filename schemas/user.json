@@ -91,7 +91,7 @@
             "type": "string",
             "minLength": 3,
             "_db_settings": {
-                "required": true,
+                "required": true
             },
             "_processors": ["encrypt"]
         },
