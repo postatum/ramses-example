@@ -37,15 +37,11 @@
             "format": "date-time"
         },
         "name": {
-            "type": "string",
-            "_db_settings": {
-                "required": true
-            }
+            "type": "string"
         },
         "description": {
             "type": "string",
             "_db_settings": {
-                "required": true,
                 "type": "text"
             }
         },

@@ -13,6 +13,8 @@ securitySchemes:
     - x_token_auth:
         description: Authorization header token policy
         type: x-ApiKey
+        settings:
+            secret: auth_tkt_secret
     - x_ticket_auth:
         description: Standard Pyramid Auth Ticket policy
         type: x-Ticket
